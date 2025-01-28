@@ -31,7 +31,7 @@ pip install openpyxl
 
 ## Author
 
-- [Mate Mihalovits, PhD]
+- Mate Mihalovits, PhD - mmateo1120@gmail.com
 
 ## Version
 
