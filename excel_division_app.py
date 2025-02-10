@@ -4,6 +4,9 @@ from openpyxl.reader.excel import load_workbook
 from copy import copy
 import tkinter as tk
 from tkinter import filedialog
+import requests
+from io import BytesIO
+from PIL import Image, ImageTk
 
 root = tk.Tk()
 root.title("Excel Division")
@@ -25,12 +28,27 @@ tk.Label(root, text="Column number (A=1, B=2, etc.):").grid(row=3, column=0, pad
 column_num_var = tk.IntVar()
 tk.Entry(root, textvariable=column_num_var, width=50).grid(row=3, column=1, padx=10, pady=5)
 
-# Function to open file dialog and set file path 
-def open_file():
-    open_name_var.set(filedialog.askopenfilename())
+tk.Label(root, text="Where to save the divided excels:").grid(row=4, column=0, padx=10, pady=5, sticky="e")
+save_name_var = tk.StringVar()
+tk.Entry(root, textvariable=save_name_var, width=50).grid(row=4, column=1, padx=10, pady=5)
+
+tk.Label(root, text="What do you want to name the files?").grid(row=5, column=0, padx=10, pady=5, sticky="e")
+excel_name_var = tk.StringVar()
+tk.Entry(root, textvariable=excel_name_var, width=50).grid(row=5, column=1, padx=10, pady=5)
 
 # Button to open file dialog
-tk.Button(root, text="Browse", command=open_file).grid(row=0, column=2, padx=10, pady=5)
+tk.Button(root, text="Browse", command=lambda: open_name_var.set(filedialog.askopenfilename())).grid(row=0, column=2, padx=10, pady=5)
+tk.Button(root, text="Browse", command=lambda:save_name_var.set(filedialog.askdirectory())).grid(row=4, column=2, padx=10, pady=5)
+
+# Put a picture of cute cat in the upper left corner of the box
+
+response = requests.get("https://i.redd.it/mz6axvogusy31.jpg")
+image_data = BytesIO(response.content)
+image = Image.open(image_data)
+resized_image = image.resize((200, int(image.height * 200 / image.width)))
+cat_image = ImageTk.PhotoImage(resized_image)
+tk.Label(root, image=cat_image).grid(row=0, column=6, rowspan=6, sticky="nwe")
+
 
 # Function to submit and close
 def submit():
@@ -94,8 +112,6 @@ for row in ws.iter_rows(min_row=2, max_row=ws.max_row, values_only=False):
         cell_new.border = copy(cell_orig.border)
 
 # Save all workbooks
-save_name = filedialog.askdirectory()
-excel_name = tk.simpledialog.askstring("Input", "What do you want to name the files?")
 for value, wb in wb_dict.items():
     wb.save(save_name + f"/{value}_{excel_name}.xlsx")
 root.destroy()
