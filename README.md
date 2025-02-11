@@ -31,6 +31,7 @@ A simple tool to divide an Excel file into multiple smaller files based on a spe
 
 ```bash
 pip install openpyxl tkinter Pillow requests
+```
 
 ## Author
 
