@@ -4,7 +4,7 @@ A simple tool to divide an Excel file into multiple smaller files based on a spe
 
 ## Usage
 
-1. Run the executable file `excel_division_by_unique_values.exe` or run `python excel_division_app.py` from the command line.
+1. Run the executable file `excel_division_by_unique_values.exe` or run `excel_division_app.py` from the command line.
 
 2. Select the Excel file you want to divide, and define the worksheet name.
 
