@@ -30,8 +30,7 @@ A simple tool to divide an Excel file into multiple smaller files based on a spe
 - Install the required packages by running the following command in the command line:
 
 ```bash
-pip install openpyxl
-```
+pip install openpyxl tkinter Pillow requests
 
 ## Author
 
