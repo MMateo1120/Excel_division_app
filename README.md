@@ -4,21 +4,25 @@ A simple tool to divide an Excel file into multiple smaller files based on a spe
 
 ## Usage
 
-1. Run the executable file `excel_division_app.exe` or run `python excel_division_app.py` from the command line.
+1. Run the executable file `excel_division_by_unique_values.exe` or run `python excel_division_app.py` from the command line.
 
 2. Select the Excel file you want to divide, and define the worksheet name.
 
 3. Select the column which you want to use to divide the Excel file.
 
-4. Select the folder you want the files to be saved to.
+4. Enter the constant part of the new Excel file names (e.g. '_Student' for '1_Student.xlsx', '2_Student.xlsx', etc.)
 
-4. Click the "Submit" button to divide the Excel file. You are done.
+5. Select the folder you want the files to be saved to.
+
+6. Click the "Submit" button to divide the Excel file. You are done.
 
 ## Requirements
 
 - Python 3.6+
 - openpyxl
 - tkinter
+- Pillow
+- requests
 
 ## Installation
 
@@ -35,4 +39,4 @@ pip install openpyxl
 
 ## Version
 
-- 0.1.0: Initial release
+- 1.0.0

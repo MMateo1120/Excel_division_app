@@ -61,7 +61,7 @@ def submit():
     root.destroy()
 
 # Submit button
-tk.Button(root, text="Submit", command=submit).grid(row=4, column=1, pady=10)
+tk.Button(root, text="Submit", command=submit).grid(row=6, column=1, pady=10)
 
 root.mainloop()
 
